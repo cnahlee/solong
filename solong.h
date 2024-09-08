@@ -48,5 +48,6 @@ char	*ft_join(char *dest, char *s1, char *s2);
 char	*ft_readed_line(char *start);
 char	*ft_move_start(char	*start);
 char	*get_next_line(int fd);
+t_map	create_map(char *file_path);
 
 #endif

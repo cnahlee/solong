@@ -20,7 +20,7 @@ void	load_textures(t_game *game)
 	int	width;
 	int	height;
 
-	game->textures[0] = mlx_xpm_file_to_image(game->mlx, "path_to_empty_texture.xpm", &width, &height);
+	game->textures[0] = mlx_xpm_file_to_image(game->mlx, "../img/marioback.xpm", &width, &height);
 	game->textures[1] = mlx_xpm_file_to_image(game->mlx, "path_to_wall_texture.xpm", &width, &height);
 	game->textures[2] = mlx_xpm_file_to_image(game->mlx, "path_to_collectible_texture.xpm", &width, &height);
 	game->textures[3] = mlx_xpm_file_to_image(game->mlx, "path_to_exit_texture.xpm", &width, &height);

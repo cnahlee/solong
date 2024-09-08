@@ -22,8 +22,8 @@ t_map	create_map(char *file_path)
 	t_map	mapc;
 
 	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-		perror("can't open file");
+	/*if (fd < 0)
+		perror("can't open file");*/
 	mapc.longueur = 0;
 	mapc.map = malloc(sizeof(char *) * 100); // Preallocate for 100 rows (adjust as needed)
 
