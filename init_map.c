@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include"solong.h"
-#include"libft.h"
+
 
 void	ft_putstr(char*s)
+
+
 {
 	int	i;
 
@@ -105,15 +107,7 @@ The map have an empty line at the middle.", game);
 
 
 
-void	ft_init_vars(t_game *game)
-{
-	game->map.coins = 0;
-	game->map.exit = 0;
-	game->map.players = 0;
-	game->movements = 0;
-	game->map.longueur = ft_strlen(game->map.map[0]) - 1;
-	game->player_sprite = RIGHT;
-}
+
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -133,17 +127,20 @@ void ft_put_map(t_game *game)
 
 int main(int argc, char **argv)
 {
-   t_game	*game;
-
-	game = malloc(sizeof(t_game));
+   t_game *game= malloc(sizeof(t_game));
 	ft_check_command_line_arguments(argc, argv, game);
 	ft_init_map(game, argv[1]);
-    if (game)
-    {
-        ft_put_map(game);
-    }
-
-    // Clean up resources
+	ft_init_vars(game);
+	ft_check_map(game);
+	ft_init_mlx(game);
+	ft_init_sprites(game);
+	ft_render_map(game);
+	mlx_hook(game->win, KeyPress, KeyPressMask, ft_handle_input, game);
+	mlx_hook(game->win, DestroyNotify, \
+	ButtonPressMask, ft_close_game, game);
+	mlx_hook(game->win, Expose, ExposureMask, ft_render_map, game);
+	mlx_loop(game->mlx);
+	ft_free_all_allocated_memory(game);
     
 
     return EXIT_SUCCESS;

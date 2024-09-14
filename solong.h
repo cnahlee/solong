@@ -22,7 +22,12 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <errno.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
+
 # include "mlx/mlx.h"
+
+
 # include "libft.h"
 
 # define IMG_HEIGHT			32
@@ -97,9 +102,6 @@ typedef struct s_game
 	t_image	open_exit;
 	t_image	exit_closed;
 	t_image	player_front;
-	t_image	player_left;
-	t_image	player_right;
-	t_image	player_back;
 }	t_game;
 
 t_map	create_map(const char *file_path);
@@ -120,5 +122,19 @@ void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 void	ft_init_map(t_game *game,char *argv);
 void	ft_check_for_empty_line(char *map, t_game *game);
 char	*get_next_line(int fd);
+void	ft_init_vars(t_game *game);
+void	ft_init_mlx(t_game *game);
+void	ft_init_sprites(t_game *game);
+t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
+int		ft_render_map(t_game *game);
+void	ft_identify_sprite(t_game *game, int x, int y);
+void	ft_render_player(t_game *game, int x, int y);
+void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
+void	ft_print_movements(t_game *game);
+int		ft_handle_input(int keysym, t_game *game);
+void	ft_player_move(t_game *game, int x, int y, int player_sprite);
+int	ft_victory(t_game *game);
+int	ft_close_game(t_game *game);
+int	ft_error_msg(char *message, t_game *game);
 
 #endif
