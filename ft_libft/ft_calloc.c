@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 13:21:54 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/06 19:23:14 by cnahle           ###   ########.fr       */
+/*   Created: 2024/06/12 18:03:25 by cnahle            #+#    #+#             */
+/*   Updated: 2024/06/14 16:45:15 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	ft_strlen(char *str)
+static void	s_zero(void *s, size_t n)
 {
-	int	len;
+	while (n--)
+		*(unsigned char *)s++ = 0;
+}
 
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
+void	*ft_calloc(size_t count, size_t n)
+{
+	void	*memory;
+
+	if (count && n && count > (UINT_MAX / n))
+		return (NULL);
+	memory = malloc(count * n);
+	if (!memory)
+		return (NULL);
+	s_zero(memory, count * n);
+	return (memory);
 }
