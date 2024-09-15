@@ -6,7 +6,7 @@
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 16:13:26 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/14 19:12:09 by cnahle           ###   ########.fr       */
+/*   Updated: 2024/09/15 19:11:17 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #  define BUFFER_SIZE 1020
 # endif
 
+# include "mlx.h"
+# include "ft_libft/libft.h"
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
@@ -25,13 +27,8 @@
 #include <X11/X.h>
 #include <X11/keysym.h>
 
-# include "mlx/mlx.h"
-
-
-# include "libft.h"
-
-# define IMG_HEIGHT			32
-# define IMG_WIDTH			32
+# define IMG_HEIGHT			50
+# define IMG_WIDTH			76
 
 # define WALL				'1'
 # define FLOOR 				'0'
@@ -136,5 +133,7 @@ void	ft_player_move(t_game *game, int x, int y, int player_sprite);
 int	ft_victory(t_game *game);
 int	ft_close_game(t_game *game);
 int	ft_error_msg(char *message, t_game *game);
+int flood_fill(char **map, int x, int y, int rows, int cols);
+void ft_check_path_to_exit(t_game	*game);
 
 #endif

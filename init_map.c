@@ -6,7 +6,7 @@
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:23:49 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/14 19:34:21 by cnahle           ###   ########.fr       */
+/*   Updated: 2024/09/15 18:32:51 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,8 @@ int main(int argc, char **argv)
 	ft_check_command_line_arguments(argc, argv, game);
 	ft_init_map(game, argv[1]);
 	ft_init_vars(game);
-	ft_check_map(game);
+	ft_check_map(game);;
+    ft_check_path_to_exit(game);   
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	ft_render_map(game);

@@ -6,7 +6,7 @@
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 19:38:43 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/14 19:38:44 by cnahle           ###   ########.fr       */
+/*   Updated: 2024/09/15 19:26:41 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_init_mlx(t_game *game)
 	if (game->mlx == NULL)
 	{
 		free(game->mlx);
-		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.", game);
+		ft_error_msg("Couldn't find mlx pointer.", game);
 	}
 	game->win = mlx_new_window(game->mlx, \
 	game->map.longueur * IMG_WIDTH, game->map.largeur * IMG_HEIGHT, "so_long");
@@ -45,15 +45,15 @@ void	ft_init_sprites(t_game *game)
 	void	*mlx;
 
 	mlx = game->mlx;
-	game->wall = ft_new_sprite(mlx, "wall.xpm", game);
-	game->floor = ft_new_sprite(mlx, "floor.xpm", game);
-	game->coins = ft_new_sprite(mlx,"coin.xpm", game);
-	game->player_front = ft_new_sprite(mlx, "mariofront.xpm", game);
+	game->wall = ft_new_sprite(mlx, "img/wall.xpm", game);
+	game->floor = ft_new_sprite(mlx, "img/floor.jpg", game);
+	game->coins = ft_new_sprite(mlx,"img/coin.xpm", game);
+	game->player_front = ft_new_sprite(mlx, "img/mario.xpm", game);
 	/*game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
 	game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
 	game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);*/
-	game->open_exit = ft_new_sprite(mlx, "opendoor.xpm", game);
-	game->exit_closed = ft_new_sprite(mlx, "closeddoor.xpm", game);
+	game->open_exit = ft_new_sprite(mlx, "img/opendoor.xpm", game);
+	game->exit_closed = ft_new_sprite(mlx, "img/closeddoor.xpm", game);
 }
 
 t_image	ft_new_sprite(void *mlx, char *path, t_game *game)

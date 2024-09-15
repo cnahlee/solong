@@ -6,7 +6,7 @@
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:02:21 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/14 16:40:55 by cnahle           ###   ########.fr       */
+/*   Updated: 2024/09/15 16:12:02 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_check_rows(t_game *game)
 			ft_error_msg("Invalid Map. \
 There's a Wall missing from the first row.\n\
 The Map must be surrounded by walls!.", game);
-		else if (game->map.map[i][game->map.longueur - 1] != WALL)
+		else if (game->map.map[i][game->map.longueur] != WALL)
 			ft_error_msg("Invalid Map. \
 There's a Wall missing from the last row.\n\
 The Map must be surrounded by walls!.", game);
@@ -45,12 +45,13 @@ The Map must be surrounded by walls!.", game);
 	}
 }
 
+
 void	ft_check_columns(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	while (i < game->map.largeur)
+	while (i < game->map.longueur)
 	{
 		if (game->map.map[0][i] != WALL)
 			ft_error_msg("Invalid Map. \

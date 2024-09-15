@@ -6,14 +6,11 @@
 /*   By: cnahle <cnahle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:30:57 by cnahle            #+#    #+#             */
-/*   Updated: 2024/09/14 16:40:32 by cnahle           ###   ########.fr       */
+/*   Updated: 2024/09/15 18:38:23 by cnahle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-
-
-
 
 void	ft_free_all_allocated_memory(t_game *game)
 {
