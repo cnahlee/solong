@@ -48,12 +48,9 @@ void	ft_identify_sprite(t_game *game, int y, int x)
 		ft_render_sprite (game, game->coins, y, x);
 	else if (parameter == MAP_EXIT)
 	{
-		if (game->map.coins == 0)
-			ft_render_sprite (game, game->open_exit, y, x);
-		else
 			ft_render_sprite (game, game->exit_closed, y, x);
 	}
-	else if (parameter == PLAYER)
+	else
 		ft_render_player (game, y, x);
 }
 

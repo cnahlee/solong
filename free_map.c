@@ -29,7 +29,6 @@ void	ft_destroy_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->coins.xpm_ptr);
 	mlx_destroy_image(game->mlx, game->player_front.xpm_ptr);
 	mlx_destroy_image(game->mlx, game->exit_closed.xpm_ptr);
-	mlx_destroy_image(game->mlx, game->open_exit.xpm_ptr);
 }
 
 void	ft_free_map(t_game *game)

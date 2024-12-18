@@ -96,7 +96,6 @@ typedef struct s_game
 	t_image	wall;
 	t_image	floor;
 	t_image	coins;
-	t_image	open_exit;
 	t_image	exit_closed;
 	t_image	player_front;
 }	t_game;
